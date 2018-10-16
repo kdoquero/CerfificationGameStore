@@ -1,0 +1,13 @@
+<img class="card-img-top" [src]="game.image.original_url" alt="Card image cap">
+<div class="card-body">
+  <h5 class="card-title">{{game.name}}</h5>
+  <p>{{game.deck}}</p>
+</div>
+<div class="card-footer">
+  <div>
+    <a (click)="goToDetails();" class="btn btn-primary">Details</a>
+    <div>
+      <label for="addto">add to Card</label>
+      <input type="checkbox" name="addto" id="">
+    </div>
+  </div>

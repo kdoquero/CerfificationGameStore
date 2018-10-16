@@ -1,0 +1,85 @@
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <div>
+      <img id="logo" src="../../assets/images/90367_2303269_199577_thumbnail.jpg" alt="logo">
+    </div>
+    <a class="navbar-brand" href="#">GameShop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav nav-object-1">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Playstation 4</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Xbox One</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Nintendo Switch</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Plus
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Nintendo Ds</a>
+            <a class="dropdown-item" href="#">PS Vita</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <ul class="nav navbar-nav navbar-right nav-object-2">
+      <li>
+        <p class="navbar-text">Already have an account?</p>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+        <ul id="login-dp" class="dropdown-menu dropdown-menu-right">
+          <li>
+            <div class="row">
+              <div class="col-md-12">
+                Login via
+                <div class="social-buttons">
+                  <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                  <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                </div>
+                or
+                <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                  <div class="form-group">
+                    <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address"
+                      required>
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="exampleInputPassword2">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password"
+                      required>
+                    <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox"> keep me logged-in
+                    </label>
+                  </div>
+                </form>
+              </div>
+              <div class="bottom text-center">
+                New here ? <a routerLink="/register"><b>Join Us</b></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
