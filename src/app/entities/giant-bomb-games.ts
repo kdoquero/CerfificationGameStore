@@ -20,5 +20,7 @@ export interface GiantBombGames {
   original_release_date: Date,
   platforms: Array<Object>,
   site_details_url: string,
-  videos: Array<Object>
+  videos: Array<Object>,
+  price?:number;
+  qty?:number;
 }

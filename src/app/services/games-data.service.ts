@@ -10,6 +10,7 @@ export class GamesDataService {
   games:GiantBombGames[];
   lastGames: GiantBombGames[];
   game:GiantBombGames;
+  price:number;
   constructor(private giantBombApi: GiantBombApiService) {
     console.log('test');
     

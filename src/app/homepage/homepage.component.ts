@@ -11,11 +11,13 @@ import { GamesDataService } from '../services/games-data.service';
 })
 export class HomepageComponent implements OnInit {
   games:GiantBombGames[] = [];
+  total:  number= 0;
   constructor(private giantBombApi: GiantBombApiService,private gamesData:GamesDataService) { }
 
   ngOnInit() {
     this.games = this.gamesData.games
     
   }
+  
 
 }

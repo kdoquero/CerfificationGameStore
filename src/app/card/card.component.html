@@ -5,9 +5,15 @@
 </div>
 <div class="card-footer">
   <div>
-    <a (click)="goToDetails();" class="btn btn-primary">Details</a>
+    <p>
+      Price: {{this.price}} €
+    </p>
+  </div>
+  <div>
+   
     <div>
-      <label for="addto">add to Card</label>
-      <input type="checkbox" name="addto" id="">
+        <a (click)="goToDetails();" class="btn btn-primary">Details</a>
+      <button (click)="add()" class="btn btn-primary">add to Card</button>
+
     </div>
   </div>

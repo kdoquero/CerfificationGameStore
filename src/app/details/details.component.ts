@@ -3,6 +3,7 @@ import { GamesDataService } from '../services/games-data.service';
 import { GiantBombGames } from '../entities/giant-bomb-games';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GiantBombApiService } from '../services/giant-bomb-api.service';
+import { CartDataService } from '../services/cart-data.service';
 
 @Component({
   selector: 'app-details',
@@ -34,7 +35,7 @@ export class DetailsComponent implements OnInit {
     site_details_url: "",
     videos: []
   };
-  constructor(private DataService: GamesDataService, private route: ActivatedRoute, private GiantBombApi: GiantBombApiService) {
+  constructor(private DataService: GamesDataService, private route: ActivatedRoute, private GiantBombApi: GiantBombApiService,private cartService:CartDataService) {
 
 
     this.GiantBombApi.getById(this.route.snapshot.params.id).subscribe(game => {
@@ -46,6 +47,8 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.cartService.cartItems);
+     
   }
 
 }

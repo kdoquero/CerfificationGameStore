@@ -37,7 +37,16 @@
     </div>
     <ul class="nav navbar-nav navbar-right nav-object-2">
       <li>
-        <p class="navbar-text">Already have an account?</p>
+        <span> Total: {{total | number: '1.0-0'}} €</span>
+      </li>
+      <li class="cart">
+        <a routerLink="/cart">
+          <span class="fa-stack fa-2x has-badge" [attr.data-count]="totalItems">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+
+          </span>
+        </a>
       </li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
