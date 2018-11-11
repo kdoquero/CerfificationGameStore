@@ -59,9 +59,10 @@ export class NavbarComponent implements OnInit {
         this.name = cart.client.name;
         this.gameStoreApi.setLogged(true)
         this.gameStoreApi.isLogged = true;
-        this.cartService.cartItems = cart.products
-        console.log(cart);
-
+        this.cartService.cartItems = cart.products;
+        this.gameStoreApi.setProducts(cart.products);
+        console.log(cart.products);
+        
 
 
       })
@@ -71,6 +72,8 @@ export class NavbarComponent implements OnInit {
     this.gameStoreApi.logout().subscribe(value=>{
       this.gameStoreApi.isLogged = false;
       this.gameStoreApi.setLogged(false);
+      this.cartService.cartItems = [];
+      this.gameStoreApi.setProducts([]);
       this.Router.navigate(['home']);
     })
   }

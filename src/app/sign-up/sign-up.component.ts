@@ -13,6 +13,7 @@ import { GameStoreApiService } from '../services/game-store-api.service';
 export class SignUpComponent implements OnInit {
   form: FormGroup;
   invalidCredentials:Boolean = false;
+  validEmail:Boolean = false;
   constructor(private fb: FormBuilder,private gameStoreApi:GameStoreApiService) {
     this.form = fb.group({
       name: ['', Validators.required],
@@ -34,14 +35,8 @@ export class SignUpComponent implements OnInit {
     
     this.gameStoreApi.newClient(this.form.value).subscribe(newClient =>{
       console.log(newClient);
-      delete this.form.value["name"];
-      this.gameStoreApi.login(this.form.value).subscribe(log=>{
-        this.gameStoreApi.setToken(log['id']);
-         this.gameStoreApi.createCart(newClient.id).subscribe(newCart=>{
-        console.log("createdCart",newCart);
-        
-      })
-      })
+      this.validEmail = true;
+      
      
     }, (error) => {
        this.invalidCredentials = true;

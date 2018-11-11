@@ -87,7 +87,7 @@
             </div>
             <input type="password" name="password-confirmation" formControlName="confirmPassword" [formGroup]="form"
               class="form-control" id="password-confirm" placeholder="Password" required>
-            
+
 
           </div>
           <span *ngIf="form.controls.confirmPassword.errors?.MatchPassword" class="text-danger email-span align-middle">
@@ -102,6 +102,10 @@
       <div class="col-md-6">
         <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Register</button>
       </div>
+      <span *ngIf="validEmail" class="text-danger email-span align-middle">
+        <i class="fa fa-close">Passwords do not
+          match</i>
+      </span>
     </div>
   </form>
 </div>

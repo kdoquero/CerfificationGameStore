@@ -4,6 +4,7 @@ import { tap } from 'rxjs/operators';
 import { Client } from '../entities/client';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Cart } from '../entities/cart';
+import { GiantBombGames } from '../entities/giant-bomb-games';
 
 
 @Injectable({
@@ -17,6 +18,8 @@ export class GameStoreApiService {
   client:Client;
   isLogged:Boolean=false;
   isloggedValidator:BehaviorSubject<Boolean> = new BehaviorSubject(false);
+  productList:BehaviorSubject<GiantBombGames[]> = new BehaviorSubject([]);
+
   constructor(private http: HttpClient) { }
 
   private getToken() {
@@ -25,6 +28,9 @@ export class GameStoreApiService {
   setToken(token) {
   localStorage.setItem('tokenGameStore',JSON.stringify(token));
     this.token = token["id"];
+  }
+  setProducts(products){
+    this.productList.next(products)
   }
   setTokenNoRemeber(token) {
       this.token = token["id"];
@@ -80,7 +86,7 @@ export class GameStoreApiService {
 
   }
 
-  addProduct(id, token, product) {
+  addProduct(id,product) {
     return this.http.post(`${this.apiDomain}shoppingCarts/${id}/products?access_token=${this.getToken()}`, product)
   }
   deleteProduct(idCart, idProduct) {

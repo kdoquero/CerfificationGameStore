@@ -10,7 +10,7 @@ export interface GiantBombGames {
   expected_release_quarter?: string,
   expected_release_year?: string,
   guid?: string,
-  id: number,
+  id?: number,
   image: Object,
   images?:Array<Object>,
   image_tags?: Array<Object>,
@@ -23,4 +23,5 @@ export interface GiantBombGames {
   videos?: Array<Object>,
   price?:number;
   qty?:number;
+  idProduct?:number;
 }
