@@ -1,5 +1,5 @@
-<div class="container">
-  <form class="form-horizontal" role="form" method="POST" action="/register">
+<div class="container background">
+  <form [formGroup]="form" class="form-horizontal" (submit)="onSubmit()" role="form" method="POST" action="/register">
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
@@ -15,7 +15,8 @@
         <div class="form-group">
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
-            <input type="text" name="name" class="form-control" id="name" placeholder="John Doe" required autofocus>
+            <input type="text" name="name" formControlName="name" [formGroup]="form" class="form-control" id="name"
+              placeholder="Name" required autofocus>
           </div>
         </div>
       </div>
@@ -31,12 +32,17 @@
       <div class="col-md-3 field-label-responsive">
         <label for="email">E-Mail Address</label>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 email">
         <div class="form-group">
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-            <input type="text" name="email" class="form-control" id="email" placeholder="you@example.com" required autofocus>
+            <input type="text" name="email" formControlName="email" [formGroup]="form" class="form-control" id="email"
+              placeholder="you@example.com" required autofocus>
+
           </div>
+          <span *ngIf="invalidCredentials" class="text-danger email-span align-middle">
+            <i class="fa fa-close">Already registered email</i>
+          </span>
         </div>
       </div>
       <div class="col-md-3">
@@ -55,15 +61,17 @@
         <div class="form-group has-danger">
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-            <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+            <input type="password" name="password" formControlName="password" [formGroup]="form" class="form-control"
+              id="password" placeholder="Password" required>
+          </div>
+          <div *ngIf="form.controls.password.minLength && !form.controls.password.errors.required" class="alert alert-danger">
+            <span>Password should contain 6 characters</span>
           </div>
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-control-feedback">
-          <span class="text-danger align-middle">
-            <i class="fa fa-close"> Example Error Message</i>
-          </span>
+
         </div>
       </div>
     </div>
@@ -71,14 +79,21 @@
       <div class="col-md-3 field-label-responsive">
         <label for="password">Confirm Password</label>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 email">
         <div class="form-group">
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem">
               <i class="fa fa-repeat"></i>
             </div>
-            <input type="password" name="password-confirmation" class="form-control" id="password-confirm" placeholder="Password" required>
+            <input type="password" name="password-confirmation" formControlName="confirmPassword" [formGroup]="form"
+              class="form-control" id="password-confirm" placeholder="Password" required>
+            
+
           </div>
+          <span *ngIf="form.controls.confirmPassword.errors?.MatchPassword" class="text-danger email-span align-middle">
+            <i class="fa fa-close">Passwords do not
+              match</i>
+          </span>
         </div>
       </div>
     </div>

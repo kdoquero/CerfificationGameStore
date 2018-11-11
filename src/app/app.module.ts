@@ -22,19 +22,23 @@ import { Platform2Component } from './platform2/platform2.component';
 import { Platform3Component } from './platform3/platform3.component';
 import { Platform4Component } from './platform4/platform4.component';
 import { CartComponent } from './cart/cart.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccountComponent } from './account/account.component';
+const routes: Routes = [
+  { path: '', component: HomepageComponent },
+  { path: 'home', component: HomepageComponent },
+  { path: 'register', component: SignUpComponent },
+  { path: 'details/:id/:name', component: DetailsComponent },
+  { path: 'plateform/ps4', component: Platform1Component },
+  { path: 'plateform/XboxOne', component: Platform2Component },
+  { path: 'plateform/Psvita', component: Platform3Component },
+  { path: 'plateform/NSwitch', component: Platform4Component },
+  { path: 'cart', component: CartComponent },
+  { path: 'cart/:id', component: CartComponent },
+  { path: 'account/:id', component: AccountComponent },
 
-const routes:Routes = [
-  { path: '', component: HomepageComponent},
-  { path: 'register', component: SignUpComponent},
-  {path: 'details/:id/:name',component:DetailsComponent },
-  {path: 'plateform/ps4',component:Platform1Component },
-  {path: 'plateform/XboxOne',component:Platform2Component },
-  {path: 'plateform/Psvita',component:Platform3Component },
-  {path: 'plateform/NSwitch',component:Platform4Component},
-  {path: 'cart',component:CartComponent},
 
 
-  
 
 
 ];
@@ -57,12 +61,15 @@ const routes:Routes = [
     Platform2Component,
     Platform3Component,
     Platform4Component,
-    CartComponent
+    CartComponent,
+    AccountComponent
   ],
   imports: [
-    BrowserModule,HttpClientModule,HttpClientJsonpModule,
+    BrowserModule, HttpClientModule, HttpClientJsonpModule,
     RouterModule.forRoot(routes),
-    UiModule 
+    UiModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,7 +24,7 @@ export class DetailsComponent implements OnInit {
     expected_release_year: "",
     guid: "",
     id: 0,
-    image: "",
+    image: {},
     image_tags: [],
     images: [],
     name: "",
@@ -36,18 +36,20 @@ export class DetailsComponent implements OnInit {
     videos: []
   };
   constructor(private DataService: GamesDataService, private route: ActivatedRoute, private GiantBombApi: GiantBombApiService,private cartService:CartDataService) {
-
-
-    this.GiantBombApi.getById(this.route.snapshot.params.id).subscribe(game => {
-      console.log(game.results);
+    if (this.DataService.game) {
+      this.game= this.DataService.game
+    } else {
+      this.GiantBombApi.getById(this.route.snapshot.params.id).subscribe(game => {
       this.game = game.results;
-      console.log(this.game);
     });
+    }
+    
+
+    
 
   }
 
   ngOnInit() {
-    console.log(this.cartService.cartItems);
      
   }
 

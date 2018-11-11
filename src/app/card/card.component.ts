@@ -30,8 +30,9 @@ export class CardComponent implements OnInit {
     this.game.qty = 0;
   }
   goToDetails(){
-    this.router.navigate(['details',this.game.id,this.game.name]);
     this.DataService.game = this.game;
+    this.router.navigate(['details',this.game.id,this.game.name]);
+    
     this.DataService.price = this.price;
   }
 ngOnDestroy() {

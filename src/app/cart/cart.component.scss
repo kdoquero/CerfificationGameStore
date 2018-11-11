@@ -33,9 +33,23 @@
 	
 }
 .imgCart {
-    height: 55px;
+    height: 105px;
     margin: 5px;
 }
 .imgContainer {
     margin: 5px;
+}
+.description {
+	background-color: rgba(70,57,57, 0.9);
+    border: 2px solid;
+    padding: 8px;
+	border-radius: 7px;
+	color: #fff;
+}
+.description:hover {
+	background-color: rgba(70,57,57, 0.9);
+    border: 2px solid;
+    padding: 8px;
+	border-radius: 7px;
+	color: #fff;
 }

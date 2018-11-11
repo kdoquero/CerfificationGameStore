@@ -3,6 +3,7 @@ import { Game } from '../entities/game';
 import { GiantBombGames } from '../entities/giant-bomb-games';
 import { GamesDataService } from './games-data.service';
 import { BehaviorSubject } from 'rxjs';
+import { Cart } from '../entities/cart';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class CartDataService {
   total:number = 0;
   isTotalItem:BehaviorSubject<number> = new BehaviorSubject(0);
   isTotalPrice:BehaviorSubject<number> = new BehaviorSubject(0);
-
+  cart:Cart;
   constructor(private GameData:GamesDataService) { 
     this.games = this.GameData.games
   }
